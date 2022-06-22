@@ -30,7 +30,7 @@ export default function useApplicationData() {
 
   //Update Spots
   const updateSpots = (state, id, boolean) => {
-    console.log(state)
+
     const newDays = state.days.map(day => {
       if (day.appointments.includes(id)) {
         return {
@@ -40,17 +40,9 @@ export default function useApplicationData() {
       }
       return day;
     })
-    console.log(newDays)
+
     return newDays;
 
-    // let newSpots;
-    // for (let day of state.days) {
-    //   if (day.name === state.day) {
-    //     if (boolean === 1) { newSpots = day.spots + 1; }
-    //     else { newSpots = day.spots - 1; }
-    //   }
-    // }
-    // return newSpots;
   }
 
   // bookInterview
