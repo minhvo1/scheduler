@@ -24,6 +24,9 @@ npm run storybook
 ```
 
 ## Images
+**Home Page**
 ![index](https://github.com/minhvo1/scheduler/blob/master/docs/index.PNG?raw=true)
+**Book Interview**
 ![book-interview](https://github.com/minhvo1/scheduler/blob/master/docs/book-interview.PNG?raw=true)
+**Delete Interview**
 ![delete-interview](https://github.com/minhvo1/scheduler/blob/master/docs/delete-interview.PNG?raw=true)
