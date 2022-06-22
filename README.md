@@ -1,4 +1,5 @@
 # Interview Scheduler
+A React app that allows users to book and cancel interviews.
 
 ## Setup
 
@@ -21,3 +22,8 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Images
+![index](https://github.com/minhvo1/scheduler/blob/master/docs/index.PNG?raw=true)
+![book-interview](https://github.com/minhvo1/scheduler/blob/master/docs/book-interview.PNG?raw=true)
+![delete-interview](https://github.com/minhvo1/scheduler/blob/master/docs/delete-interview.PNG?raw=true)
