@@ -11,11 +11,12 @@ export function getAppointmentsForDay(state, day) {
 export function getInterview(state, interview) {
   if (!interview) return null;
 
-  const interviewer = state.interviewers[interview.interviewer];
-  return {
-    student: interview.student,
-    interviewer: interviewer.name
-  }
+  const newInterview = {
+    ...interview,
+    interviewer: state.interviewers[interview.interviewer],
+  };
+
+  return newInterview;
 }
 
 export function getInterviewersForDay(state, day) {

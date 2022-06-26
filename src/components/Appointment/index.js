@@ -19,7 +19,7 @@ export default function Appointment(props) {
       interviewer
     };
     transition('SAVING');
-    props.bookInterview(props.id, interview, false).then(() => {transition('SHOW');}).catch(() => {transition('ERROR_SAVE');});
+    props.bookInterview(props.id, interview, false).then(() => {transition('SHOW');}).catch(() => {transition('ERROR_SAVE',true);});
   }
 
   //Delete
@@ -62,16 +62,38 @@ export default function Appointment(props) {
           onEdit={() => transition("EDIT")}
         />
       )}
-      
-      {mode === SAVING && <Status message={'Saving...'}/>}
-      {mode === DELETING && <Status message={'Deleting...'}/>}
-      {mode === ERROR_SAVE && <Error message={'Error: Could not save appointment'} onClose={() => transition('SHOW')}/>}
-      {mode === ERROR_DELETE && <Error message={'Error: Could not delete appointment'} onClose={() => transition('SHOW')}/>}
-      {mode === EDIT && <Form interviewers={props.interviewers} student={props.interview.student} onCancel={() => back()} onSave={edit}/>}
-      {mode === CONFIRM && <Confirm message={'Are you sure you want to delete?'} onCancel={() => back()} onConfirm={cancelInterview}/>}
+
+      {mode === SAVING && <Status message={"Saving..."} />}
+      {mode === DELETING && <Status message={"Deleting..."} />}
+      {mode === ERROR_SAVE && (
+        <Error message={"Error: Could not save appointment"} onClose={back} />
+      )}
+      {mode === ERROR_DELETE && (
+        <Error message={"Error: Could not delete appointment"} onClose={back} />
+      )}
+      {mode === EDIT && (
+        <Form
+          interviewers={props.interviewers}
+          interviewer={props.interview.interviewer.id}
+          student={props.interview.student}
+          onCancel={back}
+          onSave={edit}
+        />
+      )}
+      {mode === CONFIRM && (
+        <Confirm
+          message={"Are you sure you want to delete?"}
+          onCancel={back}
+          onConfirm={cancelInterview}
+        />
+      )}
       {mode === CREATE && (
-        <Form interviewers={props.interviewers} onCancel={() => back()} onSave={save}/>
+        <Form
+          interviewers={props.interviewers}
+          onCancel={back}
+          onSave={save}
+        />
       )}
     </article>
-  )
+  );
 }
